@@ -9,6 +9,6 @@ a) manifest.json - This file is used as a defining feature for Chrome browser. I
 
 b) popup.html - This file is extension UI. It defines extension's look and feel. It also contains the underlying JS redirection point.
 
-c) popup.js - As soon as the extension button is clicked, this file is used to inject the script in the current tab where Google Docs is opened. This script will have the function for mouse click simulation.
+c) popup.js - As soon as the extension button is clicked, this file is used to inject the script in the current tab where Google Docs is opened. This injected script will have the function for mouse click simulation.
 
 d) content_script.js - This file contains the code for the mouse click simulation function. It searches for the corresponding button in Google Docs document and click it.
