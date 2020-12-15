@@ -1,272 +1,315 @@
 <!doctype html>  
-<html>  
-    <head>
-	<title>Google Docs click simulation</title>
-	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-	<style>
-		.w3-button {width:250px;}
-		.dropbtn {
-		  background-color: #4CAF50;
-		  color: white;
-		  padding: 16px;
-		  font-size: 16px;
-		  border: none;
-		}
-
-		.dropdown {
-		  position: relative;
-		  display: inline-block;
-		}
-
-		.dropdown-content {
-		  display: none;
-		  position: absolute;
-		  background-color: #f1f1f1;
-		  min-width: 160px;
-		  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-		  z-index: 1;
-		}
-
-		.dropdown-content a {
-		  color: black;
-		  padding: 12px 16px;
-		  text-decoration: none;
-		  display: block;
-		}
-
-		.dropdown-content a:hover {background-color: #ddd;}
-
-		.dropdown:hover .dropdown-content {display: block;}
-
-		.dropdown:hover .dropbtn {background-color: #3e8e41;}
-	</style>
-	</head>  
-<body>
-	<p><button id="undo" class="w3-button w3-blue">Undo</button></p> 
-	<p><button id="redo" class="w3-button w3-blue">Redo</button></p> 
-	<p><button id="print" class="w3-button w3-blue">Print</button></p> 
-	<p><button id="spellingandgrammarcheck" class="w3-button w3-blue">SpellingAndGrammarCheck</button></p>
-	<p><button id="paintformat" class="w3-button w3-blue">PaintFormat</button></p>
-	<div class="dropdown">
-		<p><button id="zoom" class="w3-button w3-blue">Zoom</button></p>
-		<div class="dropdown-content">
-			<p><button id="fit" class="w3-button w3-blue">Fit</button></p>
-			<p><button id="50" class="w3-button w3-blue">50%</button></p> 
-			<p><button id="75" class="w3-button w3-blue">75%</button></p>
-			<p><button id="90" class="w3-button w3-blue">90%</button></p>
-			<p><button id="100" class="w3-button w3-blue" >100%</button></p>
-			<p><button id="125" class="w3-button w3-blue">125%</button></p>
-			<p><button id="150" class="w3-button w3-blue">150%</button></p>
-		</div>
-	</div>
-	<div class="dropdown">
-		<p><button id="styles" class="w3-button w3-blue">Styles</button></p>
-		<div class="dropdown-content">
-			<p><button id="normal" class="w3-button w3-blue">Normal text</button></p>
-			<p><button id="title" class="w3-button w3-blue">Title</button></p> 
-			<p><button id="subtitle" class="w3-button w3-blue">Subtitle</button></p>
-			<p><button id="heading1" class="w3-button w3-blue">Heading 1</button></p>
-			<p><button id="heading2" class="w3-button w3-blue">Heading 2</button></p>
-			<p><button id="heading3" class="w3-button w3-blue">Heading 3</button></p>
-	  </div>
-	</div>
-	<p><button id="font" class="w3-button w3-blue">Font</button></p>
-	<p><button id="fontsizedecrement" class="w3-button w3-blue">FontSizeDecrement</button></p>
-	<p><button id="fontsize" class="w3-button w3-blue">FontSize</button></p>
-	<p><button id="fontsizeincrement" class="w3-button w3-blue">FontSizeIncrement</button></p>
-	<p><button id="bold" class="w3-button w3-blue">Bold</button></p>
-	<p><button id="italics" class="w3-button w3-blue">Italics</button></p>
-	<p><button id="underline" class="w3-button w3-blue">Underline</button></p>
-	<div class="dropdown">
-		<p><button id="textcolor" class="w3-button w3-blue">TextColor</button></p>
-		<div class="dropdown-content">
-			<p><button id="black" style="margin:5px; background-color:#000000;"/></p>
-			<p><button id="darkgray4" style="margin:5px; background-color:#434343;"/></p>
-			<p><button id="darkgray3" style="margin:5px; background-color:#666666;"/></p>
-			<p><button id="darkgray2" style="margin:5px; background-color:#999999;"/></p>
-			<p><button id="darkgray1" style="margin:5px; background-color:#b7b7b7;"/></p>
-			<p><button id="grey" style="margin:5px; background-color:#cccccc;"/></p>
-			<p><button id="lightgrey1" style="margin:5px; background-color:#d9d9d9;"/></p>
-			<p><button id="lightgrey2" style="margin:5px; background-color:#efefef;"/></p>
-			<p><button id="lightgrey3" style="margin:5px; background-color:#f3f3f3;"/></p>
-			<p><button id="white" style="margin:5px; background-color:#ffffff;"/></p>
-			<p><button id="redberry" style="margin:5px; background-color:#980000;"/></p>
-			<p><button id="red" style="margin:5px; background-color:#ff0000;"/></p>
-			<p><button id="orange" style="margin:5px; background-color:#ff9900;"/></p>
-			<p><button id="yellow" style="margin:5px; background-color:#ffff00;"/></p>
-			<p><button id="green" style="margin:5px; background-color:#00ff00;"/></p>
-			<p><button id="cyan" style="margin:5px; background-color:#00ffff;"/></p>
-			<p><button id="cornflowerblue" style="margin:5px; background-color:#4a86e8;"/></p>
-			<p><button id="blue" style="margin:5px; background-color:#0000ff;"/></p>
-			<p><button id="purple" style="margin:5px; background-color:#9900ff;"/></p>
-			<p><button id="magenta" style="margin:5px; background-color:#ff00ff;"/></p>
-			<p><button id="lightredberry3" style="margin:5px; background-color:#e6b8af;"/></p>
-			<p><button id="lightred3" style="margin:5px; background-color:#f4cccc;"/></p>
-			<p><button id="lightorange3" style="margin:5px; background-color:#fce5cd;"/></p>
-			<p><button id="lightyellow3" style="margin:5px; background-color:#fff2cc;"/></p>
-			<p><button id="lightgreen3" style="margin:5px; background-color:#d9ead3;"/></p>
-			<p><button id="lightcyan3" style="margin:5px; background-color:#d0e0e3;"/></p>
-			<p><button id="lightcornflowerblue3" style="margin:5px; background-color:#c9daf8;"/></p>
-			<p><button id="lightblue3" style="margin:5px; background-color:#cfe2f3;"/></p>
-			<p><button id="lightpurple3" style="margin:5px; background-color:#d9d2e9;"/></p>
-			<p><button id="lightmagenta3" style="margin:5px; background-color:#ead1dc;"/></p>
-			<p><button id="lightredberry2" style="margin:5px; background-color:#dd7e6b;"/></p>
-			<p><button id="lightred2" style="margin:5px; background-color:#ea9999;"/></p>
-			<p><button id="lightorange2" style="margin:5px; background-color:#f9cb9c;"/></p>
-			<p><button id="lightyellow2" style="margin:5px; background-color:#ffe599;"/></p>
-			<p><button id="lightgreen2" style="margin:5px; background-color:#b6d7a8;"/></p>
-			<p><button id="lightcyan2" style="margin:5px; background-color:#a2c4c9;"/></p>
-			<p><button id="lightcornflowerblue2" style="margin:5px; background-color:#a4c2f4;"/></p>
-			<p><button id="lightblue2" style="margin:5px; background-color:#9fc5e8;"/></p>
-			<p><button id="lightpurple2" style="margin:5px; background-color:#b4a7d6;"/></p>
-			<p><button id="lightmagenta2" style="margin:5px; background-color:#d5a6bd;"/></p>
-			<p><button id="lightredberry1" style="margin:5px; background-color:#cc4125;"/></p>
-			<p><button id="lightred1" style="margin:5px; background-color:#e06666;"/></p>
-			<p><button id="lightorange1" style="margin:5px; background-color:#f6b26b;"/></p>
-			<p><button id="lightyellow1" style="margin:5px; background-color:#ffd966;"/></p>
-			<p><button id="lightgreen1" style="margin:5px; background-color:#93c47d;"/></p>
-			<p><button id="lightcyan1" style="margin:5px; background-color:#76a5af;"/></p>
-			<p><button id="lightcornflowerblue1" style="margin:5px; background-color:#6d9eeb;"/></p>
-			<p><button id="lightblue1" style="margin:5px; background-color:#6fa8dc;"/></p>
-			<p><button id="lightpurple1" style="margin:5px; background-color:#8e7cc3;"/></p>
-			<p><button id="lightmagenta1" style="margin:5px; background-color:#c27ba0;"/></p>
-			<p><button id="darkredberry1" style="margin:5px; background-color:#a61c00;"/></p>
-			<p><button id="darkred1" style="margin:5px; background-color:#cc0000;"/></p>
-			<p><button id="darkorange1" style="margin:5px; background-color:#e69138;"/></p>
-			<p><button id="darkyellow1" style="margin:5px; background-color:#f1c232;"/></p>
-			<p><button id="darkgreen1" style="margin:5px; background-color:#6aa84f;"/></p>
-			<p><button id="darkcyan1" style="margin:5px; background-color:#45818e;"/></p>
-			<p><button id="darkcornflowerblue1" style="margin:5px; background-color:#3c78d8;"/></p>
-			<p><button id="darkblue1" style="margin:5px; background-color:#3d85c6;"/></p>
-			<p><button id="darkpurple1" style="margin:5px; background-color:#674ea7;"/></p>
-			<p><button id="darkmagenta1" style="margin:5px; background-color:#a64d79;"/></p>
-			<p><button id="darkredberry2" style="margin:5px; background-color:#85200c;"/></p>
-			<p><button id="darkred2" style="margin:5px; background-color:#990000;"/></p>
-			<p><button id="darkorange2" style="margin:5px; background-color:#b45f06;"/></p>
-			<p><button id="darkyellow2" style="margin:5px; background-color:#bf9000;"/></p>
-			<p><button id="darkgreen2" style="margin:5px; background-color:#38761d;"/></p>
-			<p><button id="darkcyan2" style="margin:5px; background-color:#134f5c;"/></p>
-			<p><button id="darkcornflowerblue2" style="margin:5px; background-color:#1155cc;"/></p>
-			<p><button id="darkblue2" style="margin:5px; background-color:#0b5394;"/></p>
-			<p><button id="darkpurple2" style="margin:5px; background-color:#351c75;"/></p>
-			<p><button id="darkmagenta2" style="margin:5px; background-color:#741b47;"/></p>
-			<p><button id="darkredberry3" style="margin:5px; background-color:#5b0f00;"/></p>
-			<p><button id="darkred3" style="margin:5px; background-color:#660000;"/></p>
-			<p><button id="darkorange3" style="margin:5px; background-color:#783f04;"/></p>
-			<p><button id="darkyellow3" style="margin:5px; background-color:#7f6000;"/></p>
-			<p><button id="darkgreen3" style="margin:5px; background-color:#274e13;"/></p>
-			<p><button id="darkcyan3" style="margin:5px; background-color:#0c343d;"/></p>
-			<p><button id="darkcornflowerblue3" style="margin:5px; background-color:#1c4587;"/></p>
-			<p><button id="darkblue3" style="margin:5px; background-color:#073763;"/></p>
-			<p><button id="darkpurple3" style="margin:5px; background-color:#20124d;"/></p>
-			<p><button id="darkmagenta3" style="margin:5px; background-color:#4c1130;"/></p>
-	  </div>
-	</div>
-	<div class="dropdown">
-		<p><button id="bgcolor" class="w3-button w3-blue">BgColor</button></p>
-		<div class="dropdown-content">
-			<p><button id="tblack" style="margin:5px; background-color:#000000;"/></p>
-			<p><button id="tdarkgray4" style="margin:5px; background-color:#434343;"/></p>
-			<p><button id="tdarkgray3" style="margin:5px; background-color:#666666;"/></p>
-			<p><button id="tdarkgray2" style="margin:5px; background-color:#999999;"/></p>
-			<p><button id="tdarkgray1" style="margin:5px; background-color:#b7b7b7;"/></p>
-			<p><button id="tgrey" style="margin:5px; background-color:#cccccc;"/></p>
-			<p><button id="tlightgrey1" style="margin:5px; background-color:#d9d9d9;"/></p>
-			<p><button id="tlightgrey2" style="margin:5px; background-color:#efefef;"/></p>
-			<p><button id="tlightgrey3" style="margin:5px; background-color:#f3f3f3;"/></p>
-			<p><button id="twhite" style="margin:5px; background-color:#ffffff;"/></p>
-			<p><button id="tredberry" style="margin:5px; background-color:#980000;"/></p>
-			<p><button id="tred" style="margin:5px; background-color:#ff0000;"/></p>
-			<p><button id="torange" style="margin:5px; background-color:#ff9900;"/></p>
-			<p><button id="tyellow" style="margin:5px; background-color:#ffff00;"/></p>
-			<p><button id="tgreen" style="margin:5px; background-color:#00ff00;"/></p>
-			<p><button id="tcyan" style="margin:5px; background-color:#00ffff;"/></p>
-			<p><button id="tcornflowerblue" style="margin:5px; background-color:#4a86e8;"/></p>
-			<p><button id="tblue" style="margin:5px; background-color:#0000ff;"/></p>
-			<p><button id="tpurple" style="margin:5px; background-color:#9900ff;"/></p>
-			<p><button id="tmagenta" style="margin:5px; background-color:#ff00ff;"/></p>
-			<p><button id="tlightredberry3" style="margin:5px; background-color:#e6b8af;"/></p>
-			<p><button id="tlightred3" style="margin:5px; background-color:#f4cccc;"/></p>
-			<p><button id="tlightorange3" style="margin:5px; background-color:#fce5cd;"/></p>
-			<p><button id="tlightyellow3" style="margin:5px; background-color:#fff2cc;"/></p>
-			<p><button id="tlightgreen3" style="margin:5px; background-color:#d9ead3;"/></p>
-			<p><button id="tlightcyan3" style="margin:5px; background-color:#d0e0e3;"/></p>
-			<p><button id="tlightcornflowerblue3" style="margin:5px; background-color:#c9daf8;"/></p>
-			<p><button id="tlightblue3" style="margin:5px; background-color:#cfe2f3;"/></p>
-			<p><button id="tlightpurple3" style="margin:5px; background-color:#d9d2e9;"/></p>
-			<p><button id="tlightmagenta3" style="margin:5px; background-color:#ead1dc;"/></p>
-			<p><button id="tlightredberry2" style="margin:5px; background-color:#dd7e6b;"/></p>
-			<p><button id="tlightred2" style="margin:5px; background-color:#ea9999;"/></p>
-			<p><button id="tlightorange2" style="margin:5px; background-color:#f9cb9c;"/></p>
-			<p><button id="tlightyellow2" style="margin:5px; background-color:#ffe599;"/></p>
-			<p><button id="tlightgreen2" style="margin:5px; background-color:#b6d7a8;"/></p>
-			<p><button id="tlightcyan2" style="margin:5px; background-color:#a2c4c9;"/></p>
-			<p><button id="tlightcornflowerblue2" style="margin:5px; background-color:#a4c2f4;"/></p>
-			<p><button id="tlightblue2" style="margin:5px; background-color:#9fc5e8;"/></p>
-			<p><button id="tlightpurple2" style="margin:5px; background-color:#b4a7d6;"/></p>
-			<p><button id="tlightmagenta2" style="margin:5px; background-color:#d5a6bd;"/></p>
-			<p><button id="tlightredberry1" style="margin:5px; background-color:#cc4125;"/></p>
-			<p><button id="tlightred1" style="margin:5px; background-color:#e06666;"/></p>
-			<p><button id="tlightorange1" style="margin:5px; background-color:#f6b26b;"/></p>
-			<p><button id="tlightyellow1" style="margin:5px; background-color:#ffd966;"/></p>
-			<p><button id="tlightgreen1" style="margin:5px; background-color:#93c47d;"/></p>
-			<p><button id="tlightcyan1" style="margin:5px; background-color:#76a5af;"/></p>
-			<p><button id="tlightcornflowerblue1" style="margin:5px; background-color:#6d9eeb;"/></p>
-			<p><button id="tlightblue1" style="margin:5px; background-color:#6fa8dc;"/></p>
-			<p><button id="tlightpurple1" style="margin:5px; background-color:#8e7cc3;"/></p>
-			<p><button id="tlightmagenta1" style="margin:5px; background-color:#c27ba0;"/></p>
-			<p><button id="tdarkredberry1" style="margin:5px; background-color:#a61c00;"/></p>
-			<p><button id="tdarkred1" style="margin:5px; background-color:#cc0000;"/></p>
-			<p><button id="tdarkorange1" style="margin:5px; background-color:#e69138;"/></p>
-			<p><button id="tdarkyellow1" style="margin:5px; background-color:#f1c232;"/></p>
-			<p><button id="tdarkgreen1" style="margin:5px; background-color:#6aa84f;"/></p>
-			<p><button id="tdarkcyan1" style="margin:5px; background-color:#45818e;"/></p>
-			<p><button id="tdarkcornflowerblue1" style="margin:5px; background-color:#3c78d8;"/></p>
-			<p><button id="tdarkblue1" style="margin:5px; background-color:#3d85c6;"/></p>
-			<p><button id="tdarkpurple1" style="margin:5px; background-color:#674ea7;"/></p>
-			<p><button id="tdarkmagenta1" style="margin:5px; background-color:#a64d79;"/></p>
-			<p><button id="tdarkredberry2" style="margin:5px; background-color:#85200c;"/></p>
-			<p><button id="tdarkred2" style="margin:5px; background-color:#990000;"/></p>
-			<p><button id="tdarkorange2" style="margin:5px; background-color:#b45f06;"/></p>
-			<p><button id="tdarkyellow2" style="margin:5px; background-color:#bf9000;"/></p>
-			<p><button id="tdarkgreen2" style="margin:5px; background-color:#38761d;"/></p>
-			<p><button id="tdarkcyan2" style="margin:5px; background-color:#134f5c;"/></p>
-			<p><button id="tdarkcornflowerblue2" style="margin:5px; background-color:#1155cc;"/></p>
-			<p><button id="tdarkblue2" style="margin:5px; background-color:#0b5394;"/></p>
-			<p><button id="tdarkpurple2" style="margin:5px; background-color:#351c75;"/></p>
-			<p><button id="tdarkmagenta2" style="margin:5px; background-color:#741b47;"/></p>
-			<p><button id="tdarkredberry3" style="margin:5px; background-color:#5b0f00;"/></p>
-			<p><button id="tdarkred3" style="margin:5px; background-color:#660000;"/></p>
-			<p><button id="tdarkorange3" style="margin:5px; background-color:#783f04;"/></p>
-			<p><button id="tdarkyellow3" style="margin:5px; background-color:#7f6000;"/></p>
-			<p><button id="tdarkgreen3" style="margin:5px; background-color:#274e13;"/></p>
-			<p><button id="tdarkcyan3" style="margin:5px; background-color:#0c343d;"/></p>
-			<p><button id="tdarkcornflowerblue3" style="margin:5px; background-color:#1c4587;"/></p>
-			<p><button id="tdarkblue3" style="margin:5px; background-color:#073763;"/></p>
-			<p><button id="tdarkpurple3" style="margin:5px; background-color:#20124d;"/></p>
-			<p><button id="tdarkmagenta3" style="margin:5px; background-color:#4c1130;"/></p>
-		</div>
-	</div>
-	<p><button id="insertlink" class="w3-button w3-blue">InsertLink</button></p>
-	<p><button id="addcomment" class="w3-button w3-blue">AddComment</button></p>
-	<div class="dropdown">
-		<p><button id="insertimage" class="w3-button w3-blue">InsertImage</button></p>
-		<div class="dropdown-content">
-			<p><button id="uploadfromcomputer" class="w3-button w3-blue">Upload from Computer</button></p>
-			<p><button id="searchtheweb" class="w3-button w3-blue">Search the Web</button></p> 
-			<p><button id="drive" class="w3-button w3-blue">Drive</button></p>
-			<p><button id="photos" class="w3-button w3-blue">Photos</button></p>
-			<p><button id="byurl" class="w3-button w3-blue" >By URL</button></p>
-			<p><button id="camera" class="w3-button w3-blue">Camera</button></p>
-		</div>
-	</div>
-	<p><button id="align" class="w3-button w3-blue">Align</button></p>
-	<p><button id="linespacing" class="w3-button w3-blue">LineSpacing</button></p>
-	<p><button id="numberedlist" class="w3-button w3-blue">NumberedList</button></p>
-	<p><button id="bulletedlist" class="w3-button w3-blue">BulletedList</button></p>
-	<p><button id="decreaseindent" class="w3-button w3-blue">DecreaseIndent</button></p>
-	<p><button id="increaseindent" class="w3-button w3-blue">IncreaseIndent</button></p>
-	<p><button id="clearformatting" class="w3-button w3-blue">ClearFormatting</button></p>
-    <script src="popup.js"></script>
-</body>
+<html>
+   <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Google Docs click simulation</title>
+      <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+      <style>
+         .w3-button {width:250px;}
+         .dropbtn {
+         background-color: #4CAF50;
+         color: white;
+         padding: 16px;
+         font-size: 16px;
+         border: none;
+         }
+         .dropdown {
+         position: relative;
+         display: inline-block;
+         }
+         .dropdown-content {
+         display: none;
+         position: absolute;
+         background-color: #f1f1f1;
+         min-width: 160px;
+         box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+         z-index: 1;
+         }
+         .dropdown-content a {
+         color: black;
+         padding: 12px 16px;
+         text-decoration: none;
+         display: block;
+         }
+         .dropdown-content a:hover {background-color: #ddd;}
+         .dropdown:hover .dropdown-content {display: block;}
+         .dropdown:hover .dropbtn {background-color: #3e8e41;}
+         .tab-folder > .tab-content:target ~ .tab-content:last-child, .tab-folder > .tab-content {
+         display: none;
+         }
+         .tab-folder > :last-child, .tab-folder > .tab-content:target {
+         display: block;
+         }
+      </style>
+   </head>
+   <body>
+      <ul id="list">
+         <li><a href="#Menu">Menu</a></li>
+         <li><a href="#ToolBar">ToolBar</a></li>
+      </ul>
+      <div class="tab-folder">
+         <div id="Menu" class="tab-content">
+            <div class="dropdown">
+               <p><button id="file" class="w3-button w3-blue">File</button></p>
+               <div class="dropdown-content">
+                  <p><button id="share" class="w3-button w3-blue">Share</button></p>
+                  <p><button id="new" class="w3-button w3-blue">New</button></p>
+                  <p><button id="open" class="w3-button w3-blue">Open</button></p>
+                  <p><button id="makeacopy" class="w3-button w3-blue">Make a copy</button></p>
+                  <p><button id="email" class="w3-button w3-blue" >Email</button></p>
+                  <p><button id="download" class="w3-button w3-blue">Download</button></p>
+                  <p><button id="makeavailableoffline" class="w3-button w3-blue">Make available offline</button></p>
+                  <p><button id="versionhistory" class="w3-button w3-blue">Version history</button></p>
+                  <p><button id="rename" class="w3-button w3-blue">Rename</button></p>
+                  <p><button id="move" class="w3-button w3-blue">Move</button></p>
+                  <p><button id="addshortcuttodrive" class="w3-button w3-blue">Add shortcut to Drive</button></p>
+                  <p><button id="movetotrash" class="w3-button w3-blue" >Move to trash</button></p>
+                  <p><button id="publishtotheweb" class="w3-button w3-blue">Publish to the web</button></p>
+                  <p><button id="documentdetails" class="w3-button w3-blue">Document details</button></p>
+                  <p><button id="language" class="w3-button w3-blue">Language</button></p>
+                  <p><button id="pagesetup" class="w3-button w3-blue">Page setup</button></p>
+                  <p><button id="printfile" class="w3-button w3-blue">Print</button></p>
+               </div>
+            </div>
+            <p><button id="edit" class="w3-button w3-blue">Edit</button></p>
+            <p><button id="view" class="w3-button w3-blue">View</button></p>
+            <p><button id="insert" class="w3-button w3-blue">Insert</button></p>
+            <p><button id="format" class="w3-button w3-blue">Format</button></p>
+            <p><button id="tools" class="w3-button w3-blue">Tools</button></p>
+            <p><button id="addons" class="w3-button w3-blue">Add-ons</button></p>
+            <p><button id="help" class="w3-button w3-blue">Help</button></p>
+            <p><button id="accessibility" class="w3-button w3-blue">Accessibility</button></p>
+         </div>
+         <div id="ToolBar" class="tab-content">
+            <p><button id="undo" class="w3-button w3-blue">Undo</button></p>
+            <p><button id="redo" class="w3-button w3-blue">Redo</button></p>
+            <p><button id="print" class="w3-button w3-blue">Print</button></p>
+            <p><button id="spellingandgrammarcheck" class="w3-button w3-blue">SpellingAndGrammarCheck</button></p>
+            <p><button id="paintformat" class="w3-button w3-blue">PaintFormat</button></p>
+            <div class="dropdown">
+               <p><button id="zoom" class="w3-button w3-blue">Zoom</button></p>
+               <div class="dropdown-content">
+                  <p><button id="fit" class="w3-button w3-blue">Fit</button></p>
+                  <p><button id="50" class="w3-button w3-blue">50%</button></p>
+                  <p><button id="75" class="w3-button w3-blue">75%</button></p>
+                  <p><button id="90" class="w3-button w3-blue">90%</button></p>
+                  <p><button id="100" class="w3-button w3-blue" >100%</button></p>
+                  <p><button id="125" class="w3-button w3-blue">125%</button></p>
+                  <p><button id="150" class="w3-button w3-blue">150%</button></p>
+               </div>
+            </div>
+            <div class="dropdown">
+               <p><button id="styles" class="w3-button w3-blue">Styles</button></p>
+               <div class="dropdown-content">
+                  <p><button id="normal" class="w3-button w3-blue">Normal text</button></p>
+                  <p><button id="title" class="w3-button w3-blue">Title</button></p>
+                  <p><button id="subtitle" class="w3-button w3-blue">Subtitle</button></p>
+                  <p><button id="heading1" class="w3-button w3-blue">Heading 1</button></p>
+                  <p><button id="heading2" class="w3-button w3-blue">Heading 2</button></p>
+                  <p><button id="heading3" class="w3-button w3-blue">Heading 3</button></p>
+               </div>
+            </div>
+            <p><button id="font" class="w3-button w3-blue">Font</button></p>
+            <p><button id="fontsizedecrement" class="w3-button w3-blue">FontSizeDecrement</button></p>
+            <p><button id="fontsize" class="w3-button w3-blue">FontSize</button></p>
+            <p><button id="fontsizeincrement" class="w3-button w3-blue">FontSizeIncrement</button></p>
+            <p><button id="bold" class="w3-button w3-blue">Bold</button></p>
+            <p><button id="italics" class="w3-button w3-blue">Italics</button></p>
+            <p><button id="underline" class="w3-button w3-blue">Underline</button></p>
+            <div class="dropdown">
+               <p><button id="textcolor" class="w3-button w3-blue">TextColor</button></p>
+               <div class="dropdown-content">
+                  <p>
+                     <button id="black" style="margin:5px; background-color:#000000;"/>
+                  </p>
+                  <p><button id="darkgray4" style="margin:5px; background-color:#434343;"/></p>
+                  <p><button id="darkgray3" style="margin:5px; background-color:#666666;"/></p>
+                  <p><button id="darkgray2" style="margin:5px; background-color:#999999;"/></p>
+                  <p><button id="darkgray1" style="margin:5px; background-color:#b7b7b7;"/></p>
+                  <p><button id="grey" style="margin:5px; background-color:#cccccc;"/></p>
+                  <p><button id="lightgrey1" style="margin:5px; background-color:#d9d9d9;"/></p>
+                  <p><button id="lightgrey2" style="margin:5px; background-color:#efefef;"/></p>
+                  <p><button id="lightgrey3" style="margin:5px; background-color:#f3f3f3;"/></p>
+                  <p><button id="white" style="margin:5px; background-color:#ffffff;"/></p>
+                  <p><button id="redberry" style="margin:5px; background-color:#980000;"/></p>
+                  <p><button id="red" style="margin:5px; background-color:#ff0000;"/></p>
+                  <p><button id="orange" style="margin:5px; background-color:#ff9900;"/></p>
+                  <p><button id="yellow" style="margin:5px; background-color:#ffff00;"/></p>
+                  <p><button id="green" style="margin:5px; background-color:#00ff00;"/></p>
+                  <p><button id="cyan" style="margin:5px; background-color:#00ffff;"/></p>
+                  <p><button id="cornflowerblue" style="margin:5px; background-color:#4a86e8;"/></p>
+                  <p><button id="blue" style="margin:5px; background-color:#0000ff;"/></p>
+                  <p><button id="purple" style="margin:5px; background-color:#9900ff;"/></p>
+                  <p><button id="magenta" style="margin:5px; background-color:#ff00ff;"/></p>
+                  <p><button id="lightredberry3" style="margin:5px; background-color:#e6b8af;"/></p>
+                  <p><button id="lightred3" style="margin:5px; background-color:#f4cccc;"/></p>
+                  <p><button id="lightorange3" style="margin:5px; background-color:#fce5cd;"/></p>
+                  <p><button id="lightyellow3" style="margin:5px; background-color:#fff2cc;"/></p>
+                  <p><button id="lightgreen3" style="margin:5px; background-color:#d9ead3;"/></p>
+                  <p><button id="lightcyan3" style="margin:5px; background-color:#d0e0e3;"/></p>
+                  <p><button id="lightcornflowerblue3" style="margin:5px; background-color:#c9daf8;"/></p>
+                  <p><button id="lightblue3" style="margin:5px; background-color:#cfe2f3;"/></p>
+                  <p><button id="lightpurple3" style="margin:5px; background-color:#d9d2e9;"/></p>
+                  <p><button id="lightmagenta3" style="margin:5px; background-color:#ead1dc;"/></p>
+                  <p><button id="lightredberry2" style="margin:5px; background-color:#dd7e6b;"/></p>
+                  <p><button id="lightred2" style="margin:5px; background-color:#ea9999;"/></p>
+                  <p><button id="lightorange2" style="margin:5px; background-color:#f9cb9c;"/></p>
+                  <p><button id="lightyellow2" style="margin:5px; background-color:#ffe599;"/></p>
+                  <p><button id="lightgreen2" style="margin:5px; background-color:#b6d7a8;"/></p>
+                  <p><button id="lightcyan2" style="margin:5px; background-color:#a2c4c9;"/></p>
+                  <p><button id="lightcornflowerblue2" style="margin:5px; background-color:#a4c2f4;"/></p>
+                  <p><button id="lightblue2" style="margin:5px; background-color:#9fc5e8;"/></p>
+                  <p><button id="lightpurple2" style="margin:5px; background-color:#b4a7d6;"/></p>
+                  <p><button id="lightmagenta2" style="margin:5px; background-color:#d5a6bd;"/></p>
+                  <p><button id="lightredberry1" style="margin:5px; background-color:#cc4125;"/></p>
+                  <p><button id="lightred1" style="margin:5px; background-color:#e06666;"/></p>
+                  <p><button id="lightorange1" style="margin:5px; background-color:#f6b26b;"/></p>
+                  <p><button id="lightyellow1" style="margin:5px; background-color:#ffd966;"/></p>
+                  <p><button id="lightgreen1" style="margin:5px; background-color:#93c47d;"/></p>
+                  <p><button id="lightcyan1" style="margin:5px; background-color:#76a5af;"/></p>
+                  <p><button id="lightcornflowerblue1" style="margin:5px; background-color:#6d9eeb;"/></p>
+                  <p><button id="lightblue1" style="margin:5px; background-color:#6fa8dc;"/></p>
+                  <p><button id="lightpurple1" style="margin:5px; background-color:#8e7cc3;"/></p>
+                  <p><button id="lightmagenta1" style="margin:5px; background-color:#c27ba0;"/></p>
+                  <p><button id="darkredberry1" style="margin:5px; background-color:#a61c00;"/></p>
+                  <p><button id="darkred1" style="margin:5px; background-color:#cc0000;"/></p>
+                  <p><button id="darkorange1" style="margin:5px; background-color:#e69138;"/></p>
+                  <p><button id="darkyellow1" style="margin:5px; background-color:#f1c232;"/></p>
+                  <p><button id="darkgreen1" style="margin:5px; background-color:#6aa84f;"/></p>
+                  <p><button id="darkcyan1" style="margin:5px; background-color:#45818e;"/></p>
+                  <p><button id="darkcornflowerblue1" style="margin:5px; background-color:#3c78d8;"/></p>
+                  <p><button id="darkblue1" style="margin:5px; background-color:#3d85c6;"/></p>
+                  <p><button id="darkpurple1" style="margin:5px; background-color:#674ea7;"/></p>
+                  <p><button id="darkmagenta1" style="margin:5px; background-color:#a64d79;"/></p>
+                  <p><button id="darkredberry2" style="margin:5px; background-color:#85200c;"/></p>
+                  <p><button id="darkred2" style="margin:5px; background-color:#990000;"/></p>
+                  <p><button id="darkorange2" style="margin:5px; background-color:#b45f06;"/></p>
+                  <p><button id="darkyellow2" style="margin:5px; background-color:#bf9000;"/></p>
+                  <p><button id="darkgreen2" style="margin:5px; background-color:#38761d;"/></p>
+                  <p><button id="darkcyan2" style="margin:5px; background-color:#134f5c;"/></p>
+                  <p><button id="darkcornflowerblue2" style="margin:5px; background-color:#1155cc;"/></p>
+                  <p><button id="darkblue2" style="margin:5px; background-color:#0b5394;"/></p>
+                  <p><button id="darkpurple2" style="margin:5px; background-color:#351c75;"/></p>
+                  <p><button id="darkmagenta2" style="margin:5px; background-color:#741b47;"/></p>
+                  <p><button id="darkredberry3" style="margin:5px; background-color:#5b0f00;"/></p>
+                  <p><button id="darkred3" style="margin:5px; background-color:#660000;"/></p>
+                  <p><button id="darkorange3" style="margin:5px; background-color:#783f04;"/></p>
+                  <p><button id="darkyellow3" style="margin:5px; background-color:#7f6000;"/></p>
+                  <p><button id="darkgreen3" style="margin:5px; background-color:#274e13;"/></p>
+                  <p><button id="darkcyan3" style="margin:5px; background-color:#0c343d;"/></p>
+                  <p><button id="darkcornflowerblue3" style="margin:5px; background-color:#1c4587;"/></p>
+                  <p><button id="darkblue3" style="margin:5px; background-color:#073763;"/></p>
+                  <p><button id="darkpurple3" style="margin:5px; background-color:#20124d;"/></p>
+                  <p><button id="darkmagenta3" style="margin:5px; background-color:#4c1130;"/></p>
+               </div>
+            </div>
+            <div class="dropdown">
+            <p><button id="bgcolor" class="w3-button w3-blue">BgColor</button></p>
+            <div class="dropdown-content">
+            <p><button id="tblack" style="margin:5px; background-color:#000000;"/></p>
+            <p><button id="tdarkgray4" style="margin:5px; background-color:#434343;"/></p>
+            <p><button id="tdarkgray3" style="margin:5px; background-color:#666666;"/></p>
+            <p><button id="tdarkgray2" style="margin:5px; background-color:#999999;"/></p>
+            <p><button id="tdarkgray1" style="margin:5px; background-color:#b7b7b7;"/></p>
+            <p><button id="tgrey" style="margin:5px; background-color:#cccccc;"/></p>
+            <p><button id="tlightgrey1" style="margin:5px; background-color:#d9d9d9;"/></p>
+            <p><button id="tlightgrey2" style="margin:5px; background-color:#efefef;"/></p>
+            <p><button id="tlightgrey3" style="margin:5px; background-color:#f3f3f3;"/></p>
+            <p><button id="twhite" style="margin:5px; background-color:#ffffff;"/></p>
+            <p><button id="tredberry" style="margin:5px; background-color:#980000;"/></p>
+            <p><button id="tred" style="margin:5px; background-color:#ff0000;"/></p>
+            <p><button id="torange" style="margin:5px; background-color:#ff9900;"/></p>
+            <p><button id="tyellow" style="margin:5px; background-color:#ffff00;"/></p>
+            <p><button id="tgreen" style="margin:5px; background-color:#00ff00;"/></p>
+            <p><button id="tcyan" style="margin:5px; background-color:#00ffff;"/></p>
+            <p><button id="tcornflowerblue" style="margin:5px; background-color:#4a86e8;"/></p>
+            <p><button id="tblue" style="margin:5px; background-color:#0000ff;"/></p>
+            <p><button id="tpurple" style="margin:5px; background-color:#9900ff;"/></p>
+            <p><button id="tmagenta" style="margin:5px; background-color:#ff00ff;"/></p>
+            <p><button id="tlightredberry3" style="margin:5px; background-color:#e6b8af;"/></p>
+            <p><button id="tlightred3" style="margin:5px; background-color:#f4cccc;"/></p>
+            <p><button id="tlightorange3" style="margin:5px; background-color:#fce5cd;"/></p>
+            <p><button id="tlightyellow3" style="margin:5px; background-color:#fff2cc;"/></p>
+            <p><button id="tlightgreen3" style="margin:5px; background-color:#d9ead3;"/></p>
+            <p><button id="tlightcyan3" style="margin:5px; background-color:#d0e0e3;"/></p>
+            <p><button id="tlightcornflowerblue3" style="margin:5px; background-color:#c9daf8;"/></p>
+            <p><button id="tlightblue3" style="margin:5px; background-color:#cfe2f3;"/></p>
+            <p><button id="tlightpurple3" style="margin:5px; background-color:#d9d2e9;"/></p>
+            <p><button id="tlightmagenta3" style="margin:5px; background-color:#ead1dc;"/></p>
+            <p><button id="tlightredberry2" style="margin:5px; background-color:#dd7e6b;"/></p>
+            <p><button id="tlightred2" style="margin:5px; background-color:#ea9999;"/></p>
+            <p><button id="tlightorange2" style="margin:5px; background-color:#f9cb9c;"/></p>
+            <p><button id="tlightyellow2" style="margin:5px; background-color:#ffe599;"/></p>
+            <p><button id="tlightgreen2" style="margin:5px; background-color:#b6d7a8;"/></p>
+            <p><button id="tlightcyan2" style="margin:5px; background-color:#a2c4c9;"/></p>
+            <p><button id="tlightcornflowerblue2" style="margin:5px; background-color:#a4c2f4;"/></p>
+            <p><button id="tlightblue2" style="margin:5px; background-color:#9fc5e8;"/></p>
+            <p><button id="tlightpurple2" style="margin:5px; background-color:#b4a7d6;"/></p>
+            <p><button id="tlightmagenta2" style="margin:5px; background-color:#d5a6bd;"/></p>
+            <p><button id="tlightredberry1" style="margin:5px; background-color:#cc4125;"/></p>
+            <p><button id="tlightred1" style="margin:5px; background-color:#e06666;"/></p>
+            <p><button id="tlightorange1" style="margin:5px; background-color:#f6b26b;"/></p>
+            <p><button id="tlightyellow1" style="margin:5px; background-color:#ffd966;"/></p>
+            <p><button id="tlightgreen1" style="margin:5px; background-color:#93c47d;"/></p>
+            <p><button id="tlightcyan1" style="margin:5px; background-color:#76a5af;"/></p>
+            <p><button id="tlightcornflowerblue1" style="margin:5px; background-color:#6d9eeb;"/></p>
+            <p><button id="tlightblue1" style="margin:5px; background-color:#6fa8dc;"/></p>
+            <p><button id="tlightpurple1" style="margin:5px; background-color:#8e7cc3;"/></p>
+            <p><button id="tlightmagenta1" style="margin:5px; background-color:#c27ba0;"/></p>
+            <p><button id="tdarkredberry1" style="margin:5px; background-color:#a61c00;"/></p>
+            <p><button id="tdarkred1" style="margin:5px; background-color:#cc0000;"/></p>
+            <p><button id="tdarkorange1" style="margin:5px; background-color:#e69138;"/></p>
+            <p><button id="tdarkyellow1" style="margin:5px; background-color:#f1c232;"/></p>
+            <p><button id="tdarkgreen1" style="margin:5px; background-color:#6aa84f;"/></p>
+            <p><button id="tdarkcyan1" style="margin:5px; background-color:#45818e;"/></p>
+            <p><button id="tdarkcornflowerblue1" style="margin:5px; background-color:#3c78d8;"/></p>
+            <p><button id="tdarkblue1" style="margin:5px; background-color:#3d85c6;"/></p>
+            <p><button id="tdarkpurple1" style="margin:5px; background-color:#674ea7;"/></p>
+            <p><button id="tdarkmagenta1" style="margin:5px; background-color:#a64d79;"/></p>
+            <p><button id="tdarkredberry2" style="margin:5px; background-color:#85200c;"/></p>
+            <p><button id="tdarkred2" style="margin:5px; background-color:#990000;"/></p>
+            <p><button id="tdarkorange2" style="margin:5px; background-color:#b45f06;"/></p>
+            <p><button id="tdarkyellow2" style="margin:5px; background-color:#bf9000;"/></p>
+            <p><button id="tdarkgreen2" style="margin:5px; background-color:#38761d;"/></p>
+            <p><button id="tdarkcyan2" style="margin:5px; background-color:#134f5c;"/></p>
+            <p><button id="tdarkcornflowerblue2" style="margin:5px; background-color:#1155cc;"/></p>
+            <p><button id="tdarkblue2" style="margin:5px; background-color:#0b5394;"/></p>
+            <p><button id="tdarkpurple2" style="margin:5px; background-color:#351c75;"/></p>
+            <p><button id="tdarkmagenta2" style="margin:5px; background-color:#741b47;"/></p>
+            <p><button id="tdarkredberry3" style="margin:5px; background-color:#5b0f00;"/></p>
+            <p><button id="tdarkred3" style="margin:5px; background-color:#660000;"/></p>
+            <p><button id="tdarkorange3" style="margin:5px; background-color:#783f04;"/></p>
+            <p><button id="tdarkyellow3" style="margin:5px; background-color:#7f6000;"/></p>
+            <p><button id="tdarkgreen3" style="margin:5px; background-color:#274e13;"/></p>
+            <p><button id="tdarkcyan3" style="margin:5px; background-color:#0c343d;"/></p>
+            <p><button id="tdarkcornflowerblue3" style="margin:5px; background-color:#1c4587;"/></p>
+            <p><button id="tdarkblue3" style="margin:5px; background-color:#073763;"/></p>
+            <p><button id="tdarkpurple3" style="margin:5px; background-color:#20124d;"/></p>
+            <p><button id="tdarkmagenta3" style="margin:5px; background-color:#4c1130;"/></p>
+            </div>
+            </div>
+            <p><button id="insertlink" class="w3-button w3-blue">InsertLink</button></p>
+            <p><button id="addcomment" class="w3-button w3-blue">AddComment</button></p>
+            <div class="dropdown">
+               <p><button id="insertimage" class="w3-button w3-blue">InsertImage</button></p>
+               <div class="dropdown-content">
+                  <p><button id="uploadfromcomputer" class="w3-button w3-blue">Upload from Computer</button></p>
+                  <p><button id="searchtheweb" class="w3-button w3-blue">Search the Web</button></p>
+                  <p><button id="drive" class="w3-button w3-blue">Drive</button></p>
+                  <p><button id="photos" class="w3-button w3-blue">Photos</button></p>
+                  <p><button id="byurl" class="w3-button w3-blue" >By URL</button></p>
+                  <p><button id="camera" class="w3-button w3-blue">Camera</button></p>
+               </div>
+            </div>
+            <p><button id="align" class="w3-button w3-blue">Align</button></p>
+            <p><button id="linespacing" class="w3-button w3-blue">LineSpacing</button></p>
+            <p><button id="numberedlist" class="w3-button w3-blue">NumberedList</button></p>
+            <p><button id="bulletedlist" class="w3-button w3-blue">BulletedList</button></p>
+            <p><button id="decreaseindent" class="w3-button w3-blue">DecreaseIndent</button></p>
+            <p><button id="increaseindent" class="w3-button w3-blue">IncreaseIndent</button></p>
+            <p><button id="clearformatting" class="w3-button w3-blue">ClearFormatting</button></p>
+         </div>
+         <script src="popup.js"></script>
+      </div>
+   </body>
 </html>
