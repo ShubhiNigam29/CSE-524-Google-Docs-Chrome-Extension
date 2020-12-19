@@ -1,10 +1,8 @@
-simulateMouseEvent = function(element, eventName, coordX, coordY) {
+simulateMouseEvent = function(element, eventName) {
   element.dispatchEvent(new MouseEvent(eventName, {
     view: window,
     bubbles: true,
     cancelable: true,
-    clientX: coordX,
-    clientY: coordY,
     button: 0
   }));
 };
@@ -341,7 +339,10 @@ map['drive'] = document.querySelector('#\\:b4');
 map['photos'] = document.querySelector('#\\:b5');
 map['byurl'] = document.querySelector('#\\:b6');
 map['camera'] = document.querySelector('#\\:b7');
-map['align'] = document.querySelector('#alignButton');
+map['leftalign'] = document.querySelector('#alignLeftButton');
+map['centeralign'] = document.querySelector('#alignCenterButton');
+map['rightalign'] = document.querySelector('#alignRightButton');
+map['justify'] = document.querySelector('#alignJustifyButton');
 map['linespacing'] = document.querySelector('#lineSpacingMenuButton');
 map['numberedlist'] = document.querySelector('#addNumberedBulletButton');
 map['bulletedlist'] = document.querySelector('#addBulletButton');
@@ -351,12 +352,6 @@ map['clearformatting'] = document.querySelector('#clearFormattingButton');
 
 buttonClick = map[config];
 
-// The getBoundingClientRect() method returns the size of an element and its position relative to the viewport.
-// This method returns a DOMRect object with eight properties: left, top, right, bottom, x, y, width, height.
-box = buttonClick.getBoundingClientRect(),
-    coordX = box.left + (box.right - box.left) / 2,
-    coordY = box.top + (box.bottom - box.top) / 2;
-
-simulateMouseEvent (buttonClick, "mousedown", coordX, coordY);
-simulateMouseEvent (buttonClick, "mouseup", coordX, coordY);
-simulateMouseEvent (buttonClick, "click", coordX, coordY);
+simulateMouseEvent (buttonClick, "mousedown");
+simulateMouseEvent (buttonClick, "mouseup");
+simulateMouseEvent (buttonClick, "click");
