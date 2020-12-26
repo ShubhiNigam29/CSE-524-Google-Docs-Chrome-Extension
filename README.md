@@ -7,7 +7,7 @@ The solution contains below files:
 
 a) manifest.json - This file is used as a defining feature for Chrome browser. It tells Chrome what needs to be done in order to load the extension properly. It contains versions, permissions, and browser actions.
 
-b) popup.html - This file is extension UI. It defines extension's look and feel. It also contains the underlying JS redirection point.
+b) popup.html - This file is extension UI. It defines extension's look and feel. It also contains the underlying JS redirection point. It contains two options - Menu & Toolbar.
 
 c) popup.js - As soon as the extension button is clicked, this file is used to inject the script in the current tab where Google Docs is opened. This injected script will have the function for mouse click simulation.
 
